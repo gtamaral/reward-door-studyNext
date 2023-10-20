@@ -5,10 +5,10 @@ export default class PortaModel {
     #selecionada: boolean
     #aberta: boolean
 
-    constructor(numero: number, temPresente = false, selecionada = false, aberta = false) {
+    constructor(numero: number, temPresente = false, portaComPresente = false, aberta = false) {
         this.#numero = numero
         this.#temPresente = temPresente
-        this.#selecionada = selecionada 
+        this.#selecionada = portaComPresente 
         this.#aberta = aberta 
     }
 
@@ -37,7 +37,7 @@ export default class PortaModel {
     }
 
     alternarSelecao() {
-        const selecionada = !this. selecionada
+        const selecionada = !this.selecionada
         // retornando uma nova instancia d eporta com o novo valor alterada do "selecionada"
         return new PortaModel(this.numero, this.temPresente, selecionada, this.aberta)
     }
