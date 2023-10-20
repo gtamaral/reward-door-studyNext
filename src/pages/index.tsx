@@ -5,9 +5,13 @@ import { ataualizarPortas, criarPortas } from "../../functions/portas";
 import Card from "../../components/Card";
 import styles from "../styles/Formulario.module.css"
 import Link from "next/link";
+import EntradaNumerica from "../../components/EntradaNumerica";
 
 
 export default function Formulario() {
+
+  const [qntPortas, setQntPortas] = useState(3)
+  const [comPresente, setComPresente] = useState(1)
 
   return (
     <div className={styles.formulario}>
@@ -15,12 +19,17 @@ export default function Formulario() {
         <Card bgcolor="#c0392c">
           <h1>Reward door</h1>
         </Card>
-        <Card></Card>
+        <Card>
+          <EntradaNumerica text="Qnt de portas?" value={qntPortas} onChange={novaQnt => setQntPortas(novaQnt)} />
+        </Card>
       </div>
+
       <div>
-        <Card></Card>
+        <Card>
+          <EntradaNumerica text="porta com presente?" value={comPresente} onChange={novaPortaComPresente => setComPresente(novaPortaComPresente)} />
+        </Card>
         <Card bgcolor="#28a085">
-          <Link href={`/jogo/4/2`}>
+          <Link href={`/jogo/${qntPortas}/${comPresente}`}>
             <h2 className={styles.link}>iniciar</h2>
           </Link>
         </Card>

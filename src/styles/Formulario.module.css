@@ -5,6 +5,10 @@
     height: 100vh;
 }
 
+.formulario > div {
+    display: flex;
+}
+
 .link {
     display: flex;
     justify-content: center;
